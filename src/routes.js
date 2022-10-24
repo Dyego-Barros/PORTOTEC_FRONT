@@ -17,11 +17,22 @@
 */
 import Dashboard from "views/pages/dashboard/Dashboard";
 import ImportFile from "views/pages/files/ImportFile.js";
+import ImportFileINSS from "views/pages/files/ImportINSS.js";
 
 
 //ROTAS CLIENTES
 import Clients from "views/pages/clients/Clients";
+import EditClient from "views/pages/clients/EditClient";
+import ViewClient from "views/pages/clients/ViewClient";
+import DeleteClient from "views/pages/clients/DeleteClient";
 //FIM ROTAS CLIENTES
+
+//ROTAS CLIENTES INSS
+import InssClients  from "views/pages/inss/InssClients";
+import ViewInssClient from "views/pages/inss/ViewInssClient";
+import EditInssClient from "views/pages/inss/EditInssClient";
+import DeleteInssClient from "views/pages/inss/DeleteInssClient";
+//FIM ROTA CLIENTES INSS
 
 
 //ROTAS DE USUARIOS
@@ -42,7 +53,13 @@ import EnterpriseProfile from "views/pages/enterprises/EnterpriseProfile";
 import AddressEnterprise from "views/pages/enterprises/AddressEnterprise";
 //FIM EMPRESAS
 
+//DASHBOARD ADMIN
+import DashboardAdmin from "views/pages/enterprises/DashboardAdmin";
+//FIM DASHBOARD ADMIN
+
 import Icons from "views/Icons.js";
+
+
 
 const dashboardRoutes = [
 
@@ -51,7 +68,16 @@ const dashboardRoutes = [
     name: "Administração",
     icon: "nc-icon nc-chart-pie-35",
     component: Dashboard,
-    layout: "/admin"
+    layout: "/admin",
+    level:["Gerente", "Administrador"]
+  },
+  {
+    path: "/dashboard/admin",
+    name: "Administração Geral",
+    icon: "nc-icon nc-chart-pie-35",
+    component: DashboardAdmin,
+    layout: "/admin",
+    level:["Administrador"]
   },
   
 
@@ -59,66 +85,82 @@ const dashboardRoutes = [
   {
     path: "/enterprises/dashboard",   
     component:DashboardEnterprise,
-    layout: "/admin"
+    icon: "nc-icon nc-chart-pie-35",
+    layout: "/admin",
+    name:" Empresas",
+    level:  ["Administrador"]
   },  
   {
     path: "/enterprises/create",   
     component:CreateEnterprise,
-    layout: "/admin"
+    layout: "/admin",
+    level:  ["Administrador"]
   },
   {
     path: "/enterprises/address/create",   
     component:AddressEnterprise,
-    layout: "/admin"
+    layout: "/admin",
+    level:  ["Administrador"]
   },
   {
     path: "/enterprises/edit/:id",   
     component:EditEnterprise,
-    layout: "/admin"
+    layout: "/admin",
+    level:  ["Administrador"]
   },
   {
     path: "/enterprises/view/:id",   
     component:EnterpriseProfile,
-    layout: "/admin"
+    layout: "/admin",
+    level:  ["Administrador"]
   },
   {
     path: "/enterprises/delete/:id",   
     component:DeleteEditEnterprise,
-    layout: "/admin"
+    layout: "/admin",
+    level:  ["Administrador"]
   },
   //FINAL DE ROTAS EMPRESAS
+
   //Rotas de USUARIOS
   {
     path: "/user",
     name: "Usuários",
     icon: "nc-icon nc-circle-09",
     component: DashboardUser,
-    layout: "/admin"
+    layout: "/admin",
+    level:["Gerente", "Administrador"]
+
   },
   {
     path: "/users/create",
     component:CreateUserProfile,
-    layout: "/admin"
+    layout: "/admin",
+    level:["Gerente", "Administrador"]
   },  
 
   {
     path: "/users/edit/:id",
     component: EditUserProfile,
-    layout: "/admin"
+    layout: "/admin",
+    level:["Gerente", "Administrador"]
   },
   {
     path: "/users/address/create",
     component:AddressUserProfile,
-    layout: "/admin"
+    layout: "/admin",
+    level:["Gerente", "Administrador"]
   },
   {
     path: "/users/view/:id",   
     component: UserProfile,
-    layout: "/admin"
+    layout: "/admin",
+    level:["Gerente", "Administrador"]
   },{
     path: "/users/delete/:id",
     component: DeleteUserProfile,
-    layout: "/admin"
+    layout: "/admin",
+    level:["Gerente", "Administrador"]
   },
   //FIM ROTAS DE USUÁRIOS
   {
@@ -126,27 +168,76 @@ const dashboardRoutes = [
     component: ImportFile,
     layout: "/admin",
     icon: "nc-icon nc-paper-2",
-    name: "Importar PLanilha"
+    name: "Importar F.A",
+    level:["Padrão", "Gerente","Administrador"]
+  },
+  {
+    path:"/inss/importfile",
+    component:ImportFileINSS,
+    layout:"/admin",
+    icon: "nc-icon nc-paper-2",
+    name: "Importar INSS",
+    level:["Padrão", "Gerente","Administrador"]
   },
   //ROTAS DE CLIENTES
   {
-    path: "/clients",
-    name: "Clientes",
+    path: "/client",
+    name: "Clientes F.A",
     icon: "nc-icon nc-notes",
     component: Clients,
-    layout: "/admin"
+    layout: "/admin",
+    level:["Padrão", "Gerente","Administrador"], 
+    
    },
-   //FIM ROTA CLIENTES
-
+   {
+    path:"/clients/edit/:id",
+    component: EditClient,
+    layout: "/admin",
+    level: ["Padrão", "Gerente","Administrador"], 
+   },
+   {
+    path:"/clients/view/:id",
+    component: ViewClient,
+    layout: "/admin",
+    level: ["Padrão", "Gerente","Administrador"], 
+   },
+   {
+    path:"/clients/delete/:id",
+    component: DeleteClient,
+    layout: "/admin",
+    level:["Padrão", "Gerente","Administrador"], 
+   },   //FIM ROTA CLIENTES
+  
+      //ROTAS CLIENTES INSS
+    {
+      path:"/inss/clients",
+      component: InssClients,
+      icon: "nc-icon nc-notes",
+      name:"INSS CLIENTES",
+      layout:"/admin",
+      level:["Padrão", "Gerente","Administrador"],
+    },
+    {
+      path:"/inss/view/:id",
+      component: ViewInssClient,    
+      layout:"/admin",
+      level:["Padrão", "Gerente","Administrador"],
+    },
+   //FIM ROTAS CLIENTES INSS
   {
+    
     path: "/icons",
     name: "Icons",
     icon: "nc-icon nc-atom",
     component: Icons,
-    layout: "/admin"
+    layout: "/admin",
+    level: ["Administrador"],
+   
+   
   },
 
 
+  
 ];
 
 export default dashboardRoutes;

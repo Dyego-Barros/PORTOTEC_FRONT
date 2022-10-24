@@ -21,36 +21,61 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import "datatables.net-dt/js/dataTables.dataTables"
 import $ from 'jquery'; 
+import Loading from "components/loading/Loading";
+
 
 
 function DashboardUsers() {
   const mySwal = withReactContent(Swal);
   const token = localStorage.getItem('token');
+  const use = JSON.parse(localStorage.getItem('user')); 
   const [users, setUsers]= useState([]);
   const navigate = useHistory();
+  const [removeloading, setRemoveLoading] = useState(false);
 
   useEffect(()=>{
     if(!token){
       navigate.push("/");
-    }else{
-      const options={
-        method: 'GET',
-        mode:'cors',
-        cache:'default',
-        headers:{
-          'Authorization': `Bearer ${localStorage.getItem('token')}`,
-          'Content-Type': 'application/json',
+    }else{       
+      
+      setTimeout(()=>{
+        const url= `http://localhost:5000/user/list/enterprise/${use[0].identerprise}`;
+        console.log(url);
+        const options={
+          method: 'GET',
+          mode:'cors',
+          cache:'default',
+          headers:{
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json',
+          }
         }
-      }
+    
+     
+        fetch(url , options)
+        .then( (response) => response.json())
+        .then((data) =>{
+          setUsers(data)
+          setRemoveLoading(true)
+        })
+        .catch( (error) => console.log(error))
 
-      fetch('http://localhost:5000/user/list', options)
-      .then(response=>response.json())
-      .then((data)=>{
-        setUsers(data)
-      })
-      .catch(error=>console.log(error))
+
+      },2000)
+     
+     
+
+ 
     }
   },[])
+
+ 
+  
+
+
+
+
+ 
 
   const results = users.map((element)=>{
    return(
@@ -195,6 +220,15 @@ function DashboardUsers() {
     })
 
   }
+
+  if(!removeloading){
+    return(
+      <>
+      <Loading/>
+      </>
+    )
+
+  }
   return (
     <>
       <Container fluid>
@@ -233,7 +267,7 @@ function DashboardUsers() {
                   <Col xs="7">
                     <div className="numbers">
                       <p className="card-category">Usuarios</p>
-                      <Card.Title as="h6">TOTAL:</Card.Title>
+                      <Card.Title as="h6">TOTAL:{users.length}</Card.Title>
                     </div>
                   </Col>
                 </Row>

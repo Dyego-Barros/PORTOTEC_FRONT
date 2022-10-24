@@ -21,6 +21,7 @@ import withReactContent from 'sweetalert2-react-content'
 function CreateUser() {
     const mySwal = withReactContent(Swal);
     const token = localStorage.getItem('token');
+    const use = JSON.parse(localStorage.getItem('user'));
     const navigate = useHistory();
     const [enterprise, setEnterprise]= useState([]);
 
@@ -40,7 +41,7 @@ function CreateUser() {
                 }
             }
 
-            fetch('http://localhost:5000/enterprise/list', options)
+            fetch(`http://localhost:5000/enterprise/list/${use[0].identerprise}` , options)
             .then(response => response.json())
             .then((data)=>{
                 setEnterprise(data)
@@ -326,8 +327,9 @@ e.preventDefault();
                         <label>Level</label>
                         <select className="form-control" onChange={(e)=>setLevel(e.target.value)}>
                             <option defaultValue="selected">Selecione o Nível de Acesso</option>
-                            <option>Administrador</option>
-                            <option>Gerente</option>
+                            {use[0].level === 'Administrador'? <option>Administrador</option>: '' }
+                            {use[0].level === 'Administrador'?   <option>Gerente</option>: '' }
+                          
                             <option>Padrão</option>
                         </select>
                        

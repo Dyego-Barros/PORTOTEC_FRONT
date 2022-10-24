@@ -40,14 +40,30 @@ function Login(){
 
 //Função recebe dados da request e verica se o token é valido ou não
     function showData(result){
-   
-   
-         if(result.token !== undefined && result.login!== undefined){
-           localStorage.setItem("token",result.token);
-           localStorage.setItem("user",JSON.stringify(result.login));
-           
-            navigate.push("/admin/dashboard");
-         }else{
+      const login = result.login;
+  
+          if(login.length ==1 ){
+            localStorage.setItem("token",result.token);
+            localStorage.setItem("user",JSON.stringify(result.login));
+            const use = JSON.parse(localStorage.getItem('user'));
+            console.log(use);
+
+            if(use[0].level === "Administrador"){
+              navigate.push("/admin/dashboard");
+
+            }
+            if(use[0].level === "Gerente"){
+              navigate.push("/admin/dashboard");
+
+            }
+            if(use[0].level === "Padrão"){
+              navigate.push("/admin/client");
+
+            }
+            
+            
+          }   
+        else{
             navigate.push("/");
          }
     }
@@ -64,10 +80,9 @@ function Login(){
     //Função que raliza a resquest pro servidor e retorna as promises
   function fazerLogin(e){
      fetch('http://localhost:5000/user/login', option)
-         .then( response=>response.json())
-         .then(data =>{
-           
-          showData(data);          
+         .then(response => response.json())
+         .then(data =>{         
+          showData(data)        
         })
          .catch((error)=>{
             const Toast = mySwal.mixin({
@@ -93,7 +108,7 @@ function Login(){
     return(
         <>
         <Container>
-            <Row>
+       
                 <div id="login">
                     <div className="card" id="card-login">
                         <div className="card-header"  id="card-login-header">
@@ -112,7 +127,7 @@ function Login(){
 
                     </div>
                 </div>
-            </Row>
+            
         </Container>
         </>
     )

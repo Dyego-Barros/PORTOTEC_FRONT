@@ -31,6 +31,7 @@ const [email, setEmail]= useState();
 const url = `http://localhost:5000/enterprise/create`
 
 
+
 useEffect(()=>{
     if(!token){
         navigate.push("/");

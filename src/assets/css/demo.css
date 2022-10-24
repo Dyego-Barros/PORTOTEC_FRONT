@@ -818,12 +818,11 @@
 
 
 #login{
-  display: block;
-  position: fixed;
-  align-content: center;
-  align-items: center;
-  margin-left: 25%;
-  margin-top: 110px;
+display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+ 
 }
 
 #card-login{
@@ -866,4 +865,34 @@
 }
 #btn-file{
   margin-top: 8px;
+}
+
+.loading_container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fffefe;
+}
+
+.loding{
+  width: 500px;
+}
+#contact{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+#contatos{
+  display: inherit;
+  justify-content: center;
+  align-content: center;
+  padding-left: 1px;
+  margin-bottom: 10px;
+}
+#btn-contatos{
+  
+  margin-left: 1px;
+  margin-right: 3px;
 }

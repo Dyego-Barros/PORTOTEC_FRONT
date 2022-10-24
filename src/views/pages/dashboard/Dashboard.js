@@ -20,6 +20,10 @@ import {
 function Dashboard() {
 
   const token = localStorage.getItem('token');
+   const use = JSON.parse(localStorage.getItem('user'));
+   const [client, setClient]= useState([]);
+   const [ users, setUsers] = useState([]);  
+   const [user, setUser]= useState([]);
   const navigate= useHistory();
 
   useEffect(()=>{
@@ -27,6 +31,49 @@ function Dashboard() {
       navigate.push("/");
     }
   },[])
+
+
+
+  useEffect(()=>{
+    const options={
+      method:'GET',
+      mode:'cors',
+      Cache: 'default',
+      headers:{
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type':'application/json',
+      }
+    }
+  
+      fetch(`http://localhost:5000/user/list/enterprise/${use[0].identerprise}`,options)
+      .then((response) =>response.json())
+      .then((data)=>{
+        setUsers(data)
+      })
+      .catch((error)=>console.log(error))
+  
+  },[])
+
+  useEffect(()=>{
+    const options={
+      method:'GET',
+      mode:'cors',
+      Cache: 'default',
+      headers:{
+        'Authorization':`Bearer ${localStorage.getItem('token')}`,
+        'Content-Type':'application/json',
+      }
+    }
+
+    fetch(`http://localhost:5000/clients/list/${use[0].identerprise}`,options)
+    .then((response) => response.json())
+    .then((data)=>{
+      setClient(data)
+    })
+    .catch((error)=>console.log(error))
+  },[])
+ console.log(localStorage.getItem('token'))
+ 
   return (
     <>
       <Container fluid>
@@ -37,12 +84,12 @@ function Dashboard() {
                 <Row>
                   <Col xs="5">
                     <div className="icon-big text-center icon-warning">
-                      <i className="nc-icon nc-istanbul text-warning"></i>
+                      <i className="nc-icon nc-notes text-primary"></i>
                     </div>
                   </Col>
                   <Col xs="7">
                     <div className="numbers">
-                      <p className="card-category">Empresas</p>
+                      <p className="card-category">Contratos</p>
                       <Card.Title as="h5">TOTAL:</Card.Title>
                     </div>
                   </Col>
@@ -69,7 +116,7 @@ function Dashboard() {
                   <Col xs="7">
                     <div className="numbers">
                       <p className="card-category">Usuários</p>
-                      <Card.Title as="h5">TOTAL:</Card.Title>
+                      <Card.Title as="h5">TOTAL:{users.length}</Card.Title>
                     </div>
                   </Col>
                 </Row>
@@ -83,7 +130,7 @@ function Dashboard() {
               </Card.Footer> */}
             </Card>
           </Col>
-          <Col lg="3" sm="6">
+          {/* <Col lg="3" sm="6">
             <Card className="card-stats">
               <Card.Body>
                 <Row>
@@ -100,15 +147,15 @@ function Dashboard() {
                   </Col>
                 </Row>
               </Card.Body>
-              {/* <Card.Footer>
+               <Card.Footer>
                 <hr></hr>
                 <div className="stats">
                   <i className="far fa-clock-o mr-1"></i>
                   In the last hour
                 </div>
-              </Card.Footer> */}
+              </Card.Footer> 
             </Card>
-          </Col>
+          </Col> */}
           <Col lg="3" sm="6">
             <Card className="card-stats">
               <Card.Body>
@@ -122,7 +169,7 @@ function Dashboard() {
                     <div className="numbers">
                       <p className="card-category">Clientes</p>
 
-                      <Card.Title as="h5">TOTAL:</Card.Title>
+                      <Card.Title as="h5">TOTAL:{client.length}</Card.Title>
                     </div>
                   </Col>
                 </Row>
@@ -142,40 +189,13 @@ function Dashboard() {
         <Col md="12">
             <Card className="strpied-tabled-with-hover">
               <Card.Header>
-                <Card.Title as="h4">Empresas Cadastradas</Card.Title>
+                <Card.Title as="h4">Historico de Ligações</Card.Title>
                 <p className="card-category">
-                  Dados Cadastrados no Sistema
+                 Registro de Ligações feitas no Sistema
                 </p>
               </Card.Header>
               <Card.Body className="table-full-width table-responsive px-0">
-                <Table className="table-hover table-striped">
-                  <thead>
-                    <tr>
-                      <th className="border-0">CNPJ</th>
-                      <th className="border-0">Razão Social</th>
-                      <th className="border-0">Nome Fantasia</th>
-                      <th className="border-0">E-mail</th>
-                      <th className="border-0">Opções</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Dakota Rice</td>
-                      <td>$36,738</td>
-                      <td>Niger</td>
-                      <td>
-                        <a href="#" className="btn btn-primary" id="btn-enterprise-edit">EDITAR</a>|
-                        <a href="#" className="btn btn-warning" id="btn-enterprise-warning">VER</a>|
-                        <a href="#" className="btn btn-danger" id="btn-enterprise-danger">DELETAR</a>
-                      </td>
-                    </tr>
-                   
-                  
-                 
-                
-                  </tbody>
-                </Table>
+               <h4 as="h4"> Função Não Disponivel</h4>
               </Card.Body>
             </Card>
           </Col>

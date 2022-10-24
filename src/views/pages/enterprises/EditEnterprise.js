@@ -298,9 +298,8 @@ function EditEnterprise() {
               navigate.push("/admin/enterprises/dashboard");
           }
       }).catch((error)=>{
-          alert("Error:" + error);
-      })
-      console.log(update, updateAddress);
+        console.log("Error:" + error);
+      })   
       e.preventDefault();
 
   }

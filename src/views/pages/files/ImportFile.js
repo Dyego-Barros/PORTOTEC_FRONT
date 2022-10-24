@@ -67,7 +67,7 @@ e.preventDefault();
         console.log(response);
         const importou= " importou";
         localStorage.setItem('import', importou)
-        navigate.push("/admin/clients");
+        navigate.push("/admin/client");
 
       }else if (response.status === 400){
         const Toast = mySwal.mixin({
@@ -104,7 +104,7 @@ e.preventDefault();
           <Col md="12">
             <Card className="card-plain table-plain-bg">
               <Card.Header>
-                <Card.Title as="h4">IMPORTAR PLANILHA</Card.Title>
+                <Card.Title as="h4">IMPORTAR PLANILHA FORÇAS ARMADAS</Card.Title>
           
               </Card.Header>
               <Card.Body className="table-full-width table-responsive px-0">

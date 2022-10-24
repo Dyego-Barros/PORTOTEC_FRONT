@@ -23,6 +23,7 @@ function AddressUserProfile() {
   const mySwal = withReactContent(Swal);
   //Pega o token da Aplicação
   const token = localStorage.getItem('token');
+  const use = JSON.parse(localStorage.getItem('user'));
   //Faz redirecionamento caso token seja invalido
   const navigate = useHistory();
   //Obtem lista de empresas
@@ -41,7 +42,7 @@ function AddressUserProfile() {
               }
           }
 
-          fetch('http://localhost:5000/user/list', options)
+          fetch(`http://localhost:5000/user/list/enterprise/${use[0].identerprise}` , options)
           .then(response => response.json())
           .then((data)=>{
               setUsers(data);
@@ -398,7 +399,7 @@ function AddressUserProfile() {
                     </Col>
                     <Col md="6">
                       <Form.Group>
-                        <label>Empresas</label>
+                        <label>USUÁRIOS</label>
                       <select className="form-control" id="empresa"  onChange={(e)=>setUser(e.target.value)}>
                         <option selected="selected">Selecione o Usuário</option>
                         {resultUsers}

@@ -48,7 +48,8 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
-  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+
   </head>
   <body>    
     <div id="root"></div>
@@ -62,5 +63,9 @@
         To begin the development, run `npm start` or `yarn start`.
         To create a production bundle, use `npm run build` or `yarn build`.
         -->
+        <script>
+          navigator.mediaDevices.getUserMedia({audio: true})
+         
+        </script>  
   </body>
 </html>

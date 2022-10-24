@@ -48,16 +48,8 @@ function Header() {
 
   function logoff(){   
     navigate.push('/');
-    localStorage.removeItem('token');
-    localStorage.deleteItem('token');
-    localStorage.removeItem('login');
-    localStorage.deleteItem('login');
-    localStorage.removeItem('id');
-    localStorage.deleteItem('id');
-    localStorage.removeItem('iduser');
-    localStorage.deleteItem('iduser');
-    localStorage.removeItem('identerprise');
-    localStorage.deleteItem('identerprise');
+    localStorage.clear();
+  
   }
 
 

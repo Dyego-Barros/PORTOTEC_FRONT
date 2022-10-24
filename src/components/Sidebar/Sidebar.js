@@ -24,6 +24,9 @@ import logo from "assets/img/reactlogo.png";
 
 function Sidebar({ color, image, routes }) {
   const location = useLocation();
+
+  const use = JSON.parse(localStorage.getItem('user'));
+
   const activeRoute = (routeName) => {
     return location.pathname.indexOf(routeName) > -1 ? "active" : "";
   };
@@ -52,25 +55,37 @@ function Sidebar({ color, image, routes }) {
         <Nav>
           {routes.map((prop, key) => {
             if (!prop.redirect)
-            if(prop.name == null){
+         
+             if(prop.name == null){
                 return(
                   <>
                   </>
                 )
-            }else{
-              return (
+            } else{
+              if(prop.level[0] === use[0].level || prop.level[1] === use[0].level|| prop.level[2] === use[0].level){
+                return (
+
+                
               
-                <li key={key}>
-                 <NavLink
-                   to={prop.layout + prop.path}
-                   className="nav-link"
-                   activeClassName="active"
-                 >
-                   <i className={prop.icon} />
-                   <p>{prop.name}</p>
-                 </NavLink>
-               </li>
-             );
+                  <li key={key}>
+                   <NavLink
+                     to={prop.layout + prop.path}
+                     className="nav-link"
+                     activeClassName="active"
+                   >
+                     <i className={prop.icon} />
+                     <p>{prop.name}</p>
+                   </NavLink>
+                 </li>
+               );
+
+              }else{
+                return(
+                  <>
+                  </>
+                )
+              }
+             
             }
            
             return null;
