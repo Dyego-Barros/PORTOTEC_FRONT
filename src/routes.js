@@ -223,6 +223,18 @@ const dashboardRoutes = [
       layout:"/admin",
       level:["Padrão", "Gerente","Administrador"],
     },
+    {
+      path:"/inss/edit/:id",
+      component: EditInssClient,    
+      layout:"/admin",
+      level:["Padrão", "Gerente","Administrador"],
+    },
+    {
+      path:"/inss/delete/:id",
+      component: DeleteInssClient,    
+      layout:"/admin",
+      level:["Padrão", "Gerente","Administrador"],
+    },
    //FIM ROTAS CLIENTES INSS
   {
     

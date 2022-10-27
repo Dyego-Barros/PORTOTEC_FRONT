@@ -208,7 +208,7 @@ function InssClients() {
                       <th className="border">Nome</th>
                       <th className="border">CPF</th>
                       <th className="border">NASCIMENTO</th>
-                      <th className="border">TIPO BENEFICIO</th>
+                      <th className="border">BENEFICIO</th>
                       <th className="border">BANCO</th>
                       <th className="border">OPÇÔES</th>
                      

@@ -14,7 +14,7 @@ import {
 } from "react-bootstrap";
 
 import { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams,Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
@@ -229,7 +229,7 @@ const results = client.map((element,index) =>{
                   <Row>
                     <Col className="pr-1" md="4">
                       <Form.Group>
-                        <label>CEL-1</label>
+                        <label>TEL-4</label>
                         <Form.Control
                            defaultValue={element.fone4 != undefined? element.fone4 :"Não cadastrado"}
                           
@@ -248,8 +248,8 @@ const results = client.map((element,index) =>{
 const contacts = client.map((element,index)=>{
   return(
     <>
-
-<Row key={index}>
+                 <Form>
+                <Row key={index}>
                <div id="contatos">
                <Form.Group>
                <label>TELEFONE-1</label>
@@ -260,9 +260,12 @@ const contacts = client.map((element,index)=>{
                    ></Form.Control>
                   </Form.Group>
            
-               <Button className="btn-fill btn-success pull-right" id="btn-contatos">
+               <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.fone1}`}  >
+                <Button id="btn-whatsapp">
                 Whatsapp
-                 </Button>
+                </Button>
+              
+                 </a>
                </div>
 
                </Row>
@@ -278,10 +281,12 @@ const contacts = client.map((element,index)=>{
                    ></Form.Control>
                   </Form.Group>
               
-               <Button className="btn-fill btn-success pull-right" id="btn-contatos"
-               >
+                  <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.fone2}`}  >
+                <Button id="btn-whatsapp">
                 Whatsapp
-                 </Button>
+                </Button>
+              
+                 </a>
                </div>
                 </Row>
                 <Row>
@@ -295,9 +300,12 @@ const contacts = client.map((element,index)=>{
                    ></Form.Control>
                   </Form.Group>
               
-               <Button className="btn-fill btn-success pull-right" id="btn-contatos">
+                  <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.fone3}`}  >
+                <Button id="btn-whatsapp">
                 Whatsapp
-                 </Button>
+                </Button>
+              
+                 </a>
                </div>
                 </Row>
                 <Row>
@@ -311,14 +319,17 @@ const contacts = client.map((element,index)=>{
                    ></Form.Control>
                   </Form.Group>
              
-               <Button className="btn-fill btn-success pull-right">
+                  <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.fone4}`}  >
+                <Button id="btn-whatsapp">
                 Whatsapp
-                 </Button>
+                </Button>
+              
+                 </a>
                </div>
                 
                 </Row>
           
-              
+                </Form>
 
                 {localStorage.setItem('id_client', element.id)}
                 {localStorage.setItem('idEnterprise', element.identerprise)}
@@ -333,30 +344,28 @@ const contacts = client.map((element,index)=>{
     <>
       <Container fluid>
         <Row>
-        <Col md="8">
+        <Col md="12">
             <Card>
               <Card.Header>
-                <Card.Title as="h4">Editar Cliente</Card.Title>
+                <Card.Title as="h4">Ver Dados Cliente</Card.Title>
               </Card.Header>
               <Card.Body>
                 <Form  >
-             {results}
-              
-              
-                  <Button
-                    className="btn-fill btn-block pull-right"
-                    type="submit"
-                    variant="info"
-                    
-                  >
-                    EDITAR CLIENTE
-                  </Button>
+             {results}  
                   <div className="clearfix"></div>
                 </Form>
               </Card.Body>
             </Card>
           </Col>
-          <Col md="4">
+       
+     
+        </Row>
+
+      </Container>
+      <Container fluid>
+        <Row>
+    
+          <Col md="12">
             <Card className="card-user">
               <div className="card-image">
               <h4 className="justify-center" id="contact">CONTATOS CLIENTES</h4>

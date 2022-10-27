@@ -49,6 +49,7 @@ function Header() {
   function logoff(){   
     navigate.push('/');
     localStorage.clear();
+    localStorage.deleteitem('token');
   
   }
 

@@ -891,8 +891,19 @@ display: flex;
   padding-left: 1px;
   margin-bottom: 10px;
 }
-#btn-contatos{
-  
-  margin-left: 1px;
-  margin-right: 3px;
+
+
+#btn-whatsapp{
+  height: 39px;
+  margin-top: 28px;
+  margin-left: 5px;
+  background-color: green;
+  border: none;
+  color: white;
+}
+#captcha{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
 }

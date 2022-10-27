@@ -37,18 +37,18 @@ function DeleteClient(){
                             'Content-Type': 'application/json'
                         }
                     }
-                    fetch(`http://localhost:5000/clients/delete/${id}`, options)
+                    fetch(`http://localhost:5000/inss/delete/${id}`, options)
                     .then((response)=>{
                         if(response.ok){
                             console.log(response);
                             let deletou = 'excluida com sucesso!'
                             localStorage.setItem('excluir', deletou);
-                            navigate.push("/admin/client");
+                            navigate.push("/admin/inss/clients");
             
                         }else if(!response.ok){
                             let error = 'error';
                             localStorage.setItem('error', error);
-                            navigate.push("/admin/client");
+                            navigate.push("/admin/inss/clients");
 
                         }
 
@@ -56,7 +56,7 @@ function DeleteClient(){
                   
                  
                 }else{
-                    navigate.push("/admin/client");
+                    navigate.push("/admin/inss/clients");
                 }
               })
     

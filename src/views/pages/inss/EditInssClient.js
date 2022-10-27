@@ -22,7 +22,7 @@ import withReactContent from 'sweetalert2-react-content'
 
 
 
-function EditClient() {
+function EditInssClient() {
 
   const token = localStorage.getItem('token');
   const {id} = useParams();
@@ -201,7 +201,7 @@ const results = client.map((element,index) =>{
                     </Col>
                     <Col className="pl-1" md="3">
                       <Form.Group>
-                        <label>BAIRRO</label>
+                        <label>CEP</label>
                         <Form.Control
                            defaultValue={element.cep != undefined ? element.cep :"Não cadastrado"}
                            onChange={(e)=>setCep(e.target.value)}
@@ -244,10 +244,10 @@ const results = client.map((element,index) =>{
                     </Col>
                     <Col className="pl-1" md="3">
                       <Form.Group>
-                        <label>TEL-3</label>
+                        <label>TEL-4</label>
                         <Form.Control
                            defaultValue={element.fone4 !=undefined ? element.fone4 :"Não cadastrado"}
-                           onChange={(e)=>setFixo4(e.target.value)}
+                           onChange={(e)=>setFIxo4(e.target.value)}
                           type="TEXT"
                         ></Form.Control>
                       </Form.Group>
@@ -259,36 +259,27 @@ const results = client.map((element,index) =>{
 });
 
 const identerprise =localStorage.getItem('idEnterprise');
-const idclient = localStorage.getItem('id_client');
+console.log(identerprise);
+
 
 function EditClient(e){
 
   const body ={
     cpf:cpf,
     nome: nome,
-    tipo:tipo,
-    posto:posto,
-    sub_om:sub_om,
-    ordem:ordem,
-    upag:upag,
-    valor:valor,
-    prazo:prazo,
-    banco:banco,
-    data_nascimento:nascimento,
-    endereco:endereco,
-    numero:numero,
-    complemento:complemento,
-    bairro:bairro,
-    cidade:cidade,
+    dtnascimento:dtnascimento,
+    bancopagto:bancopagto,
+    salario:salario,
+    esp:esp,     
     uf:uf,
-    cep:cep,
-    fixo1:fixo1,
-    fixo2:fixo2,
-    fixo3:fixo3,
-    cel1:cel1,
-    cel2:cel2,
-    cel3:cel3,
-    identerprise:parseInt(identerprise),
+    municipo:municipo,
+    bairro:bairro,  
+    cep:cep, 
+    fone1:fone1,
+    fone2:fone2,
+    fone3:fone3,
+    fone4:fone4,
+    identerprise:parseInt(identerprise)
   }
  
 const newBody = JSON.stringify(body);
@@ -308,12 +299,12 @@ console.log(body)
 
   
 
-  fetch(`http://localhost:5000/clients/update/${idclient}`, options)
+  fetch(`http://localhost:5000/inss/update/${id}`, options)
   .then((response) =>{
     if(response.ok){
       const editou = "editou";
       localStorage.setItem('edit',editou)
-      navigate.push("/admin/client");
+      navigate.push("/admin/inss/clients");
 
     }
   })
@@ -356,18 +347,7 @@ console.log(body)
               </Card.Body>
             </Card>
           </Col>
-          <Col md="4">
-            <Card className="card-user">
-              <div className="card-image">
-              <h4 className="justify-center" id="contact">CONTATOS CLIENTES</h4>
-              </div>
-              <Card.Body>
-                {contacts}
-              </Card.Body>
-              <hr></hr>
-             
-            </Card>
-          </Col>
+        
      
         </Row>
       </Container>
@@ -375,4 +355,4 @@ console.log(body)
   );
 }
 
-export default EditClient;
+export default EditInssClient;

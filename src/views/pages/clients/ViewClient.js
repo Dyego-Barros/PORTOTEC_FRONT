@@ -332,8 +332,8 @@ const results = client.map((element,index) =>{
 const contacts = client.map((element,index)=>{
   return(
     <>
-
-<Row key={index}>
+     <Form>
+                <Row key={index}>
                <div id="contatos">
                <Form.Group>
                <label>TELEFONE-1</label>
@@ -343,10 +343,13 @@ const contacts = client.map((element,index)=>{
                    type="text"
                    ></Form.Control>
                   </Form.Group>
-             
-               <Button className="btn-fill btn-success pull-right" id="btn-contatos">
+           
+               <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.fixo1}`}  >
+                <Button id="btn-whatsapp">
                 Whatsapp
-                 </Button>
+                </Button>
+              
+                 </a>
                </div>
 
                </Row>
@@ -361,11 +364,13 @@ const contacts = client.map((element,index)=>{
                    type="text"
                    ></Form.Control>
                   </Form.Group>
-            
-               <Button className="btn-fill btn-success pull-right" id="btn-contatos"
-               >
+              
+                  <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.fixo2}`}  >
+                <Button id="btn-whatsapp">
                 Whatsapp
-                 </Button>
+                </Button>
+              
+                 </a>
                </div>
                 </Row>
                 <Row>
@@ -378,62 +383,74 @@ const contacts = client.map((element,index)=>{
                    type="text"
                    ></Form.Control>
                   </Form.Group>
-             
-               <Button className="btn-fill btn-success pull-right" id="btn-contatos">
+              
+                  <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.fixo3}`}  >
+                <Button id="btn-whatsapp">
                 Whatsapp
-                 </Button>
+                </Button>
+              
+                 </a>
                </div>
                 </Row>
                 <Row>
                 <div id="contatos">
                <Form.Group>
-               <label>CELULAR-1</label>
+               <label>Celular-1</label>
                    <Form.Control
                     defaultValue={element.cel1 != undefined ? element.cel1 :"Não cadastrado"}
                    disabled
                    type="text"
                    ></Form.Control>
                   </Form.Group>
-            
-               <Button className="btn-fill btn-success pull-right" id="btn-contatos">
+             
+                  <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.cel1}`}  >
+                <Button id="btn-whatsapp">
                 Whatsapp
-                 </Button>
+                </Button>
+                 </a>
                </div>
-                
                 </Row>
                 <Row>
                 <div id="contatos">
                <Form.Group>
-               <label>CELULAR-2</label>
+               <label>Celular-1</label>
                    <Form.Control
                     defaultValue={element.cel2 != undefined ? element.cel2 :"Não cadastrado"}
                    disabled
                    type="text"
                    ></Form.Control>
                   </Form.Group>
-            
-               <Button className="btn-fill btn-success pull-right" id="btn-contatos">
+             
+                  <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.cel2}`}  >
+                <Button id="btn-whatsapp">
                 Whatsapp
-                 </Button>
+                </Button>
+                 </a>
                </div>
                 </Row>
                 <Row>
                 <div id="contatos">
                <Form.Group>
-               <label>CELULAR-3</label>
+               <label>Celular-1</label>
                    <Form.Control
-                    defaultValue={element.cel3 != undefined? element.cel3 : "Não cadastrado"}
+                    defaultValue={element.cel3 != undefined ? element.cel3 :"Não cadastrado"}
                    disabled
                    type="text"
                    ></Form.Control>
                   </Form.Group>
              
-               <Button className="btn-fill btn-success pull-right" id="btn-contatos">
+                  <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.cel3}`}  >
+                <Button id="btn-whatsapp">
                 Whatsapp
-                 </Button>
+                </Button>
+                 </a>
                </div>
-                
                 </Row>
+          
+                </Form>
+
+                {localStorage.setItem('id_client', element.id)}
+                {localStorage.setItem('idEnterprise', element.identerprise)}
 
                 {localStorage.setItem('id_client', element.id)}
                 {localStorage.setItem('idEnterprise', element.identerprise)}
@@ -448,7 +465,9 @@ const contacts = client.map((element,index)=>{
     <>
       <Container fluid>
         <Row>
-        <Col md="8">
+        <Col md="12
+        
+        ">
             <Card>
               <Card.Header>
                 <Card.Title as="h4">Editar Cliente</Card.Title>
@@ -458,20 +477,20 @@ const contacts = client.map((element,index)=>{
              {results}
               
               
-                  <Button
-                    className="btn-fill btn-block pull-right"
-                    type="submit"
-                    variant="info"
-                    
-                  >
-                    EDITAR CLIENTE
-                  </Button>
+                
                   <div className="clearfix"></div>
                 </Form>
               </Card.Body>
             </Card>
           </Col>
-          <Col md="4">
+        
+     
+        </Row>
+      </Container>
+
+      <Container fluid>
+        <Row>   
+          <Col md="12">
             <Card className="card-user">
               <div className="card-image">
               <h4 className="justify-center" id="contact">CONTATOS CLIENTES</h4>

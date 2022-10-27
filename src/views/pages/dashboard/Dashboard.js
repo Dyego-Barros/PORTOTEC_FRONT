@@ -27,7 +27,7 @@ function Dashboard() {
   const navigate= useHistory();
 
   useEffect(()=>{
-    if(!token){
+    if(token==null || token== undefined){
       navigate.push("/");
     }
   },[])
@@ -72,7 +72,7 @@ function Dashboard() {
     })
     .catch((error)=>console.log(error))
   },[])
- console.log(localStorage.getItem('token'))
+ //console.log(localStorage.getItem('token'))
  
   return (
     <>

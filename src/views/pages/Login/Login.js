@@ -1,5 +1,7 @@
 import React from "react";
 
+import RECAPTCHA from "react-google-recaptcha";
+
 // react-bootstrap components
 import {
   Badge,
@@ -13,7 +15,7 @@ import {
   Col
 } from "react-bootstrap";
 
-import {useState, useEffect } from 'react';
+import {useState, useEffect,useRef } from 'react';
 import {useHistory} from'react-router-dom'
 
 import Swal from 'sweetalert2';
@@ -76,33 +78,62 @@ function Login(){
     body: data2,
     headers:{'Content-Type': 'application/json'},  
  }
-
+ const captcha = useRef(null);
     //Função que raliza a resquest pro servidor e retorna as promises
   function fazerLogin(e){
-     fetch('http://localhost:5000/user/login', option)
-         .then(response => response.json())
-         .then(data =>{         
-          showData(data)        
-        })
-         .catch((error)=>{
-            const Toast = mySwal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 5000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                  toast.addEventListener('mouseenter', Swal.stopTimer)
-                  toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-              })
-              
-              Toast.fire({
-                icon: 'error',
-                title: 'E-mail ou Senha inválidos!'
-              })
-         } );
-       e.preventDefault();
+    if(captcha.current.getValue()){
+      fetch('http://localhost:5000/user/login', option)
+      .then(response => response.json())
+      .then(data =>{         
+       showData(data)        
+     })
+      .catch((error)=>{
+         const Toast = mySwal.mixin({
+             toast: true,
+             position: 'top-end',
+             showConfirmButton: false,
+             timer: 5000,
+             timerProgressBar: true,
+             didOpen: (toast) => {
+               toast.addEventListener('mouseenter', Swal.stopTimer)
+               toast.addEventListener('mouseleave', Swal.resumeTimer)
+             }
+           })
+           
+           Toast.fire({
+             icon: 'error',
+             title: 'E-mail ou Senha inválidos!'
+           })
+      } );
+    e.preventDefault();
+  }else{
+
+    const Toast = mySwal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 5000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'error',
+      title: 'Marque a Opção não sou um Robô!'
+    })
+    e.preventDefault();
+  }
+
+  
+   }
+  
+
+   function capatcha(){
+   
+  
    }
 
     return(
@@ -120,6 +151,16 @@ function Login(){
                                 <input type="email" className="form-control" placeholder="Email@usuario.com" onChange={(e)=>setUserName(e.target.value)} />
                                 <label className="for-control">Senha</label>
                                 <input type="password" className="form-control" placeholder="Digite a senha" onChange={(e)=>setPassword(e.target.value)} />
+                                <div id="captcha">
+                                  <RECAPTCHA
+                                  ref={captcha}
+                                  sitekey="6LcKwrsiAAAAALkJ9gPWfrXfuaPMvPNlqPILDJqc"
+                                  onChange={capatcha}
+                                  
+                                  >
+
+                                  </RECAPTCHA>
+                                </div>
 
                                 <input type="submit" className="btn btn-block btn-success" id="btn-login" value="Login"/>
                             </form>

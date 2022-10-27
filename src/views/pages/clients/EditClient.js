@@ -352,131 +352,6 @@ const results = client.map((element,index) =>{
     </>
   )
 });
-
-const contacts = client.map((element,index)=>{
-  return(
-    <>
-
-<Row key={index}>
-               <div id="contatos">
-               <Form.Group>
-               <label>TELEFONE-1</label>
-                   <Form.Control
-                   defaultValue={element.fixo1 != undefined? element.fixo1 :"Não cadastrado"}
-                   disabled
-                   type="text"
-                   ></Form.Control>
-                  </Form.Group>
-               <Button className="btn-fill pull-right" id="btn-contatos">
-                 LIGAR
-                 </Button>
-               <Button className="btn-fill btn-success pull-right" id="btn-contatos">
-                Whatsapp
-                 </Button>
-               </div>
-
-               </Row>
-               <Row>
-               <div id="contatos">
-             
-               <Form.Group>  
-               <label>TELEFONE-2</label>               
-                   <Form.Control
-                    defaultValue={element.fixo2 != undefined? element.fixo2 :"Não cadastrado"}
-                   disabled
-                   type="text"
-                   ></Form.Control>
-                  </Form.Group>
-               <Button className="btn-fill pull-right" id="btn-contatos">
-                 LIGAR
-                 </Button>
-               <Button className="btn-fill btn-success pull-right" id="btn-contatos">
-                Whatsapp
-                 </Button>
-               </div>
-                </Row>
-                <Row>
-                <div id="contatos">
-               <Form.Group>
-               <label>TELEFONE-3</label>
-                   <Form.Control
-                    defaultValue={element.fixo3 != undefined ? element.fixo3 :"Não cadastrado"}
-                   disabled
-                   type="text"
-                   ></Form.Control>
-                  </Form.Group>
-               <Button className="btn-fill pull-right" id="btn-contatos">
-                 LIGAR
-                 </Button>
-               <Button className="btn-fill btn-success pull-right" id="btn-contatos">
-                Whatsapp
-                 </Button>
-               </div>
-                </Row>
-                <Row>
-                <div id="contatos">
-               <Form.Group>
-               <label>CELULAR-1</label>
-                   <Form.Control
-                    defaultValue={element.cel1 != undefined ? element.cel1 :"Não cadastrado"}
-                   disabled
-                   type="text"
-                   ></Form.Control>
-                  </Form.Group>
-               <Button className="btn-fill pull-right" id="btn-contatos">
-                 LIGAR
-                 </Button>
-               <Button className="btn-fill btn-success pull-right" id="btn-contatos">
-                Whatsapp
-                 </Button>
-               </div>
-                
-                </Row>
-                <Row>
-                <div id="contatos">
-               <Form.Group>
-               <label>CELULAR-2</label>
-                   <Form.Control
-                    defaultValue={element.cel2 != undefined ? element.cel2 :"Não cadastrado"}
-                   disabled
-                   type="text"
-                   ></Form.Control>
-                  </Form.Group>
-               <Button className="btn-fill pull-right" id="btn-contatos">
-                 LIGAR
-                 </Button>
-               <Button className="btn-fill btn-success pull-right" id="btn-contatos">
-                Whatsapp
-                 </Button>
-               </div>
-                </Row>
-                <Row>
-                <div id="contatos">
-               <Form.Group>
-               <label>CELULAR-3</label>
-                   <Form.Control
-                    defaultValue={element.cel3 != undefined? element.cel3 : "Não cadastrado"}
-                   disabled
-                   type="text"
-                   ></Form.Control>
-                  </Form.Group>
-               <Button className="btn-fill pull-right" id="btn-contatos">
-                 LIGAR
-                 </Button>
-               <Button className="btn-fill btn-success pull-right" id="btn-contatos">
-                Whatsapp
-                 </Button>
-               </div>
-                
-                </Row>
-
-                {localStorage.setItem('id_client', element.id)}
-                {localStorage.setItem('idEnterprise', element.identerprise)}
-
-    </>
-  )
-
-})
 const identerprise =localStorage.getItem('idEnterprise');
 const idclient = localStorage.getItem('id_client');
 
@@ -552,7 +427,7 @@ console.log(body)
     <>
       <Container fluid>
         <Row>
-        <Col md="8">
+        <Col md="12">
             <Card>
               <Card.Header>
                 <Card.Title as="h4">Editar Cliente</Card.Title>
@@ -575,18 +450,8 @@ console.log(body)
               </Card.Body>
             </Card>
           </Col>
-          <Col md="4">
-            <Card className="card-user">
-              <div className="card-image">
-              <h4 className="justify-center" id="contact">CONTATOS CLIENTES</h4>
-              </div>
-              <Card.Body>
-                {contacts}
-              </Card.Body>
-              <hr></hr>
-             
-            </Card>
-          </Col>
+        
+        
      
         </Row>
       </Container>

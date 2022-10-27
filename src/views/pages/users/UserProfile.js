@@ -24,9 +24,9 @@ function ViewUser() {
     const navigate = useHistory();
     const [users, setUsers]= useState([]);
     const {id} = useParams();
-    
 
     useEffect(()=>{
+     
         if(!token){
             navigate.push("/");
 
