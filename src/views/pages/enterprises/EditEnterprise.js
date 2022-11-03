@@ -90,6 +90,8 @@ function EditEnterprise() {
   const [state, setState]= useState();
   const [complement, setComplement]= useState();
   const [number, setNumber]= useState();
+  const [sip, setSip]= useState();
+  const [apikey, setApiKey]= useState();
   const[identerprise, setIdenterprise]= useState()
   
 
@@ -155,6 +157,30 @@ function EditEnterprise() {
                       </Form.Group>
                     </Col>
                   </Row>
+
+                  <Row>
+                    <Col className="pr-1" md="6">
+                      <Form.Group>
+                        <label>SIP</label>
+                        <Form.Control
+                         defaultValue={element.sip} onChange={(e) => setSip(e.target.value)}
+                          type="text"
+                        ></Form.Control>
+                      </Form.Group>
+                    </Col>
+                    <Col className="pl-1" md="6">
+                      <Form.Group>
+                        <label>API KEY</label>
+                        <Form.Control
+                          defaultValue={element.apikey} onChange={(e)=> setApiKey(e.target.value)}
+                          type="text"
+                        ></Form.Control>
+                      </Form.Group>
+                    </Col>
+                  </Row>
+
+
+
                   <Row>
                     <Col md="4">
                       <Form.Group>
@@ -239,7 +265,9 @@ function EditEnterprise() {
       "name_fantasy": fantasy,
       "social_reason": reason,
       "phone":phone,
-      "email": email
+      "email": email,
+      "sip":sip,
+      "apikey":apikey
 
   }
   const update2 = JSON.stringify(update)

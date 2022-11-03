@@ -344,7 +344,7 @@ const contacts = client.map((element,index)=>{
                    ></Form.Control>
                   </Form.Group>
            
-               <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.fixo1}`}  >
+               <a target="_blank"  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.fixo1}`}  >
                 <Button id="btn-whatsapp">
                 Whatsapp
                 </Button>
@@ -365,7 +365,7 @@ const contacts = client.map((element,index)=>{
                    ></Form.Control>
                   </Form.Group>
               
-                  <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.fixo2}`}  >
+                  <a  target="_blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.fixo2}`}  >
                 <Button id="btn-whatsapp">
                 Whatsapp
                 </Button>
@@ -384,7 +384,7 @@ const contacts = client.map((element,index)=>{
                    ></Form.Control>
                   </Form.Group>
               
-                  <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.fixo3}`}  >
+                  <a target="_blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.fixo3}`}  >
                 <Button id="btn-whatsapp">
                 Whatsapp
                 </Button>
@@ -403,7 +403,7 @@ const contacts = client.map((element,index)=>{
                    ></Form.Control>
                   </Form.Group>
              
-                  <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.cel1}`}  >
+                  <a target="_blank"  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.cel1}`}  >
                 <Button id="btn-whatsapp">
                 Whatsapp
                 </Button>
@@ -421,7 +421,7 @@ const contacts = client.map((element,index)=>{
                    ></Form.Control>
                   </Form.Group>
              
-                  <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.cel2}`}  >
+                  <a target="_blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.cel2}`}  >
                 <Button id="btn-whatsapp">
                 Whatsapp
                 </Button>
@@ -439,7 +439,7 @@ const contacts = client.map((element,index)=>{
                    ></Form.Control>
                   </Form.Group>
              
-                  <a  href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.cel3}`}  >
+                  <a target="_blank" href={`https://api.whatsapp.com/send?1=pt_BR&phone=${element.cel3}`}  >
                 <Button id="btn-whatsapp">
                 Whatsapp
                 </Button>

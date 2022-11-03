@@ -46,9 +46,9 @@ const formdata= new FormData();
 formdata.append("file", JSON.stringify(file.name));
 formdata.append("file", file);
 
-e.preventDefault();
-console.log(formdata.get("file"));
-e.preventDefault();
+// e.preventDefault();
+// console.log(formdata.get("file"));
+// e.preventDefault();
 
     const options={
       method: 'POST',

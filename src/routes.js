@@ -53,11 +53,16 @@ import EnterpriseProfile from "views/pages/enterprises/EnterpriseProfile";
 import AddressEnterprise from "views/pages/enterprises/AddressEnterprise";
 //FIM EMPRESAS
 
-//DASHBOARD ADMIN
-import DashboardAdmin from "views/pages/enterprises/DashboardAdmin";
+//DASHBOARD ALL USERS ADMIN
+import DashboardAllUsers from "views/pages/allUsers/DashboardAllUsers";
+import CreateAllUser from "views/pages/allUsers/CreateAllUserProfile";
+import EditAllUser from "views/pages/allUsers/EditAllUserProfile";
+import ViewAllUser from "views/pages/allUsers/AllUserProfile";
+import DeleteAllUserProfile from "views/pages/allUsers/DeleteAllUserProfile";
+import AddressAllUserProfile from "views/pages/allUsers/AddressAllUserProfile";
 //FIM DASHBOARD ADMIN
 
-import Icons from "views/Icons.js";
+
 
 
 
@@ -72,12 +77,42 @@ const dashboardRoutes = [
     level:["Gerente", "Administrador"]
   },
   {
-    path: "/dashboard/admin",
-    name: "Administração Geral",
-    icon: "nc-icon nc-chart-pie-35",
-    component: DashboardAdmin,
+    path: "/all/users",
+    name: "Usúarios Geral",
+    icon: "nc-icon nc-circle-09",
+    component: DashboardAllUsers,
     layout: "/admin",
     level:["Administrador"]
+  },
+  {
+    path:"/all/user/edit/:id",
+    layout:"/admin",
+    component:EditAllUser,
+    level:  ["Administrador"]
+  },
+  {
+    path:"/all/user/view/:id",
+    layout:"/admin",
+    component: ViewAllUser,
+    level:  ["Administrador"]
+  },
+  {
+    path:"/all/user/delete/:id",
+    layout:"/admin",
+    component: DeleteAllUserProfile,
+    level:  ["Administrador"]
+  },
+  {
+    path:"/all/user/create",
+    layout:"/admin",
+    component: CreateAllUser,
+    level:  ["Administrador"]
+  },
+  {
+    path:"/all/user/address/create",
+    layout:"/admin",
+    component: AddressAllUserProfile,
+    level:  ["Administrador"]
   },
   
 
@@ -236,20 +271,6 @@ const dashboardRoutes = [
       level:["Padrão", "Gerente","Administrador"],
     },
    //FIM ROTAS CLIENTES INSS
-  {
-    
-    path: "/icons",
-    name: "Icons",
-    icon: "nc-icon nc-atom",
-    component: Icons,
-    layout: "/admin",
-    level: ["Administrador"],
-   
-   
-  },
-
-
-  
 ];
 
 export default dashboardRoutes;

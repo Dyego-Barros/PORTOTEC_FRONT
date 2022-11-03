@@ -110,6 +110,36 @@ function Clients() {
   }
  
  },[])
+
+ 
+ const importacao = localStorage.getItem('import');
+ useEffect(() => {
+   //É Executada quando requisição POST de Cliente é bem executada
+  if(importacao){
+   setTimeout(() => {
+     const Toast = Swal.mixin({
+       toast: true,
+       position: 'top-end',
+       showConfirmButton: false,
+       timer: 3000,
+       timerProgressBar: true,
+       didOpen: (toast) => {
+         toast.addEventListener('adrress', Swal.stopTimer)
+         toast.addEventListener('adrress', Swal.resumeTimer)
+       }
+     })
+     
+     Toast.fire({
+       icon: 'success',
+       title: 'Planilha importada com Sucesso!'
+     })
+     localStorage.removeItem('import');
+     localStorage.deleteItem('import');
+ 
+    }, 7000)
+  }
+ 
+ },[])
  const excluir = localStorage.getItem('excluir');
  useEffect(() => {
    //É Executada quando requisição POST de Cliente é bem executada

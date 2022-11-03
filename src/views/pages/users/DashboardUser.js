@@ -84,8 +84,7 @@ function DashboardUsers() {
       <td>{element.name}</td>
       <td>{element.email_user}</td>
       <td>{element.phone}</td>
-      <td>{element.level}</td>
-      <td>{element.name_fantasy}</td>
+      <td>{element.level}</td>    
       <td>
         <a href={"/admin/users/edit/"+element.id_user} className="btn btn-primary" id="btn-enterprise-edit">EDITAR</a>|
         <a href={"/admin/users/view/"+element.id_user}  className="btn btn-warning" id="btn-enterprise-warning">VER</a>|
@@ -316,8 +315,7 @@ function DashboardUsers() {
                       <th className="border-0">Nome</th>
                       <th className="border-0">E-mail</th>
                       <th className="border-0">Telefone</th>
-                      <th className="border-0">Level</th>
-                      <th className="border-0">Empresa</th>
+                      <th className="border-0">Level</th>                     
                       <th className="border-0">Opções</th>
                     </tr>
                   </thead>

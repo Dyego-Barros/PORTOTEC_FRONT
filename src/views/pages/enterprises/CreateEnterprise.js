@@ -28,7 +28,10 @@ const[reason, setReason]= useState();
 const[fantasy, setFantasy] = useState();
 const [phone, setPhone]= useState();
 const [email, setEmail]= useState();
+const [sip, setSip]= useState();
+const [apikey, setApiKey]= useState();
 const url = `http://localhost:5000/enterprise/create`
+
 
 
 
@@ -49,6 +52,8 @@ function Cadastrar(e){
         "name_fantasy":fantasy,
         "phone":phone,
         "email":email,
+        "sip":sip,
+        "apikey":apikey,
     }
     const create2 = JSON.stringify(create);
     const options={
@@ -175,6 +180,30 @@ function Cadastrar(e){
                           placeholder="(11)9xxxx-xxxx"
                           type="text"
                           onChange={(e)=>setPhone(e.target.value)}
+                        ></Form.Control>
+                      </Form.Group>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col className="pr-1" md="6">
+                      <Form.Group>
+                        <label>SIP</label>
+                        <Form.Control
+                         
+                          placeholder="Número SIP da Empresa"
+                          type="text"
+                          onChange={(e)=>setSip(e.target.value)}
+                        ></Form.Control>
+                      </Form.Group>
+                    </Col>
+                    <Col className="pl-1" md="6">
+                      <Form.Group>
+                        <label>API KEY</label>
+                        <Form.Control
+                          
+                          placeholder="Chave de uso da API"
+                          type="text"
+                          onChange={(e)=>setApiKey(e.target.value)}
                         ></Form.Control>
                       </Form.Group>
                     </Col>

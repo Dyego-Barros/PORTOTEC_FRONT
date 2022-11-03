@@ -23,16 +23,47 @@ function Dashboard() {
    const use = JSON.parse(localStorage.getItem('user'));
    const [client, setClient]= useState([]);
    const [ users, setUsers] = useState([]);  
-   const [user, setUser]= useState([]);
+   const [enterprise, setEnterprise]= useState();
   const navigate= useHistory();
 
   useEffect(()=>{
     if(token==null || token== undefined){
       navigate.push("/");
+    }else{
+       const options ={
+        method: "GET",
+        mode: "cors",
+        cache:"default",
+        headers:{
+          'Authorization':`Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json'
+        }
+       }
+       fetch(`http://localhost:5000/enterprise/list/${use[0].identerprise}`,options)
+       .then((response)=> response.json())
+       .then((data)=>{
+        setEnterprise(data);
+       })
+       .catch((error) => {console.log(error)})
+
+      
     }
   },[])
 
+  console.log(enterprise);
 
+  useEffect(()=>{
+    setTimeout(()=>{
+      const options={
+        method: "GET",
+        mode:"cors",     
+        cache:"default",       
+      }
+      fetch(`https://api.nvoip.com.br/v2/calls?callId=${enterprise[0].sip}&napikey=${enterprise[0].apikey}`,options)
+      .then((response)=>response.json())
+      .catch((error)=> console.log(error))
+    },2000)
+  })
 
   useEffect(()=>{
     const options={

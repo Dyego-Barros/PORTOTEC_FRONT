@@ -218,7 +218,7 @@ function CreateUser() {
               identerprise:newid[0]
             }
 
-            if(body !== undefined || body !== null){
+           
 
               const options={
                 method:'POST',
@@ -240,12 +240,12 @@ function CreateUser() {
                   localStorage.setItem('criou', created);
                   navigate.push("/admin/user");
                 }
-               
+                e.preventDefault();
                 
               })
               .catch(error=>console.log(error))
 
-            }
+          
            
           
 e.preventDefault();
@@ -271,6 +271,7 @@ e.preventDefault();
                          
                           placeholder="João Da SIlva"
                           type="text"
+                          name="name"
                           onChange={(e)=>setName(e.target.value)}
                         ></Form.Control>
                       </Form.Group>
@@ -316,7 +317,7 @@ e.preventDefault();
                         <label>Empresa</label>
                        <select className="form-control" onChange={(e)=>setIdenterprise(e.target.value)}>
                         <option defaultValue="selected">Selecione a Empresa</option>
-                     {results}
+                    {results}
                        </select>
                       </Form.Group>
                     </Col>
@@ -344,6 +345,7 @@ e.preventDefault();
                           
                           placeholder="Digite a Senha"
                           type="password"
+                          name="password"
                           onChange={(e)=>setPassword(e.target.value)}
                         ></Form.Control>
                       </Form.Group>
