@@ -42,7 +42,7 @@ function AddressUserProfile() {
               }
           }
 
-          fetch(`http://localhost:5000/user/list/enterprise/${use[0].identerprise}` , options)
+          fetch(`http://191.101.78.186:5000/user/list/enterprise/${use[0].identerprise}` , options)
           .then(response => response.json())
           .then((data)=>{
               setUsers(data);
@@ -257,7 +257,7 @@ function AddressUserProfile() {
           }
 
       }
-      fetch('http://localhost:5000/address_user/create', options)
+      fetch('http://191.101.78.186:5000/address_user/create', options)
       .then((response)=>{
           if(response.ok){
               let endereco = "endereco criado com sucesso!"

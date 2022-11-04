@@ -52,7 +52,7 @@ function DashboardEnterprise() {
              }
            
              //Request para a API
-             fetch('http://localhost:5000/enterprise/list',options)
+             fetch('http://191.101.78.186:5000/enterprise/list',options)
              .then( response => response.json())
      
              .then(data => {
@@ -73,7 +73,7 @@ function DashboardEnterprise() {
  
   useEffect(()=>{
      //É Executada para retornar total de usuarios Cadastrados no sistema
-     fetch('http://localhost:5000/user/list',{
+     fetch('http://191.101.78.186:5000/user/list',{
          method: "GET",
          mode: "cors",
          cache: 'default',

@@ -61,7 +61,7 @@ formdata.append("file", file);
     }
     }
 
-    fetch(`http://localhost:5000/enterprise/upload/file/${id[0]}`,options)
+    fetch(`http://191.101.78.186:5000/enterprise/upload/file/${id[0]}`,options)
     .then((response)=>{   
       if(response.status ===201){
         console.log(response);

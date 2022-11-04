@@ -41,7 +41,7 @@ function AddressEnterprise() {
               }
           }
 
-          fetch('http://localhost:5000/enterprise/list', options)
+          fetch('http://191.101.78.186:5000/enterprise/list', options)
           .then(response => response.json())
           .then((data)=>{
               setEnterprises(data);
@@ -258,7 +258,7 @@ console.log(idempresa);
           }
 
       }
-      fetch('http://localhost:5000/address_enterprise/create', options)
+      fetch('http://191.101.78.186:5000/address_enterprise/create', options)
       .then((response)=>{
           if(response.ok){
               let endereco = "endereco criado com sucesso!"

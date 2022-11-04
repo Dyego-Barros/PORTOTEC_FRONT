@@ -22,7 +22,7 @@ function EnterpriseProfile() {
    
 
   const {id }= useParams();
-  const url =`http://localhost:5000/enterprise/list/${id}`;
+  const url =`http://191.101.78.186:5000/enterprise/list/${id}`;
   const token = localStorage.getItem('token');
   const navigate = useHistory();
 
@@ -237,7 +237,7 @@ function EnterpriseProfile() {
 
   })
   
-  const url2 = `http://localhost:5000/address_enterprise/update/${localStorage.getItem('id')}`;
+  const url2 = `http://191.101.78.186:5000/address_enterprise/update/${localStorage.getItem('id')}`;
 
 console.log(url2)
   
@@ -253,7 +253,7 @@ console.log(url2)
 
   }
   const update2 = JSON.stringify(update)
-  const url = `http://localhost:5000/enterprise/update/${id}`
+  const url = `http://191.101.78.186:5000/enterprise/update/${id}`
 
   const options={
       method: "PUT",

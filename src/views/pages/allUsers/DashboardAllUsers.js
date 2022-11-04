@@ -39,7 +39,7 @@ function DashboarAlldUsers() {
     }else{       
       
       setTimeout(()=>{
-        const url= `http://localhost:5000/user/list`;
+        const url= `http://191.101.78.186:5000/user/list`;
       
 
         

@@ -39,7 +39,7 @@ function Dashboard() {
           'Content-Type': 'application/json'
         }
        }
-       fetch(`http://localhost:5000/enterprise/list/${use[0].identerprise}`,options)
+       fetch(`http://191.101.78.186:5000/enterprise/list/${use[0].identerprise}`,options)
        .then((response)=> response.json())
        .then((data)=>{
         setEnterprise(data);
@@ -50,20 +50,7 @@ function Dashboard() {
     }
   },[])
 
-  console.log(enterprise);
-
-  useEffect(()=>{
-    setTimeout(()=>{
-      const options={
-        method: "GET",
-        mode:"cors",     
-        cache:"default",       
-      }
-      fetch(`https://api.nvoip.com.br/v2/calls?callId=${enterprise[0].sip}&napikey=${enterprise[0].apikey}`,options)
-      .then((response)=>response.json())
-      .catch((error)=> console.log(error))
-    },2000)
-  })
+ 
 
   useEffect(()=>{
     const options={
@@ -76,7 +63,7 @@ function Dashboard() {
       }
     }
   
-      fetch(`http://localhost:5000/user/list/enterprise/${use[0].identerprise}`,options)
+      fetch(`http://191.101.78.186:5000/user/list/enterprise/${use[0].identerprise}`,options)
       .then((response) =>response.json())
       .then((data)=>{
         setUsers(data)
@@ -96,7 +83,7 @@ function Dashboard() {
       }
     }
 
-    fetch(`http://localhost:5000/clients/list/${use[0].identerprise}`,options)
+    fetch(`http://191.101.78.186:5000/clients/list/${use[0].identerprise}`,options)
     .then((response) => response.json())
     .then((data)=>{
       setClient(data)

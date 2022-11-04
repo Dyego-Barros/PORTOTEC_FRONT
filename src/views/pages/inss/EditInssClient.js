@@ -45,7 +45,7 @@ function EditInssClient() {
         }
       }
 
-      fetch(`http://localhost:5000/inss/list/${id}`, options)
+      fetch(`http://191.101.78.186:5000/inss/list/${id}`, options)
       .then( (response)=>response.json())
       .then((data) =>{
         setClient(data);
@@ -299,7 +299,7 @@ console.log(body)
 
   
 
-  fetch(`http://localhost:5000/inss/update/${id}`, options)
+  fetch(`http://191.101.78.186:5000/inss/update/${id}`, options)
   .then((response) =>{
     if(response.ok){
       const editou = "editou";

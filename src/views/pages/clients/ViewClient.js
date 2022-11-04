@@ -45,7 +45,7 @@ function ViewClient() {
         }
       }
 
-      fetch(`http://localhost:5000/clients/list/client/${id}`, options)
+      fetch(`http://191.101.78.186:5000/clients/list/client/${id}`, options)
       .then( (response)=>response.json())
       .then((data) =>{
         setClient(data);

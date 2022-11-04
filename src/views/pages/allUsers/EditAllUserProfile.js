@@ -42,7 +42,7 @@ function EditAllUser() {
                 }
             }
 
-            fetch(`http://localhost:5000/user/list/${id}`, options)
+            fetch(`http://191.101.78.186:5000/user/list/${id}`, options)
             .then(response => response.json())
             .then((data)=>{
 
@@ -276,7 +276,7 @@ function EditAllUser() {
 
      
         
-        const url2 =`http://localhost:50000/address_user/update/${localStorage.getItem('id')}`
+        const url2 =`http://191.101.78.186:50000/address_user/update/${localStorage.getItem('id')}`
         
 
         function Editar(e){
@@ -326,7 +326,7 @@ function EditAllUser() {
               
           }
 
-          const url=`http://localhost:5000/user/update/${id}`;
+          const url=`http://191.101.78.186:5000/user/update/${id}`;
 
           fetch( url2, options2)
           .then(response=>response.json())

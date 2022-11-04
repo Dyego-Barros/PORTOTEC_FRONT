@@ -65,7 +65,7 @@ function Clients() {
         }
       }
     
-    fetch(`http://localhost:5000/clients/list/${identerprise[0]}`, options)
+    fetch(`http://191.101.78.186:5000/clients/list/${identerprise[0]}`, options)
     .then(response => response.json())
     .then((data)=>{
       setClients(data)

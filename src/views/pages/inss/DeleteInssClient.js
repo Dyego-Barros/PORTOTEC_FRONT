@@ -37,7 +37,7 @@ function DeleteClient(){
                             'Content-Type': 'application/json'
                         }
                     }
-                    fetch(`http://localhost:5000/inss/delete/${id}`, options)
+                    fetch(`http://191.101.78.186:5000/inss/delete/${id}`, options)
                     .then((response)=>{
                         if(response.ok){
                             console.log(response);

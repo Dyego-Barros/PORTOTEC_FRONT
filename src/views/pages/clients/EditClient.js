@@ -45,7 +45,7 @@ function EditClient() {
         }
       }
 
-      fetch(`http://localhost:5000/clients/list/client/${id}`, options)
+      fetch(`http://191.101.78.186:5000/clients/list/client/${id}`, options)
       .then( (response)=>response.json())
       .then((data) =>{
         setClient(data);
@@ -402,7 +402,7 @@ console.log(body)
 
   
 
-  fetch(`http://localhost:5000/clients/update/${idclient}`, options)
+  fetch(`http://191.101.78.186:5000/clients/update/${idclient}`, options)
   .then((response) =>{
     if(response.ok){
       const editou = "editou";

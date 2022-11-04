@@ -41,7 +41,7 @@ function CreateAllUser() {
                 }
             }
 
-            fetch(`http://localhost:5000/enterprise/list` , options)
+            fetch(`http://191.101.78.186:5000/enterprise/list` , options)
             .then(response => response.json())
             .then((data)=>{
                 setEnterprise(data)
@@ -233,7 +233,7 @@ function CreateAllUser() {
   
             
                
-              fetch('http://localhost:5000/user/create', options)
+              fetch('http://191.101.78.186:5000/user/create', options)
               .then((response)=>{
                 if(response.ok){
                   const created = 'criou';

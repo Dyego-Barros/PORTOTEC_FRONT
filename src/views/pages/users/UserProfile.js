@@ -42,7 +42,7 @@ function ViewUser() {
                 }
             }
 
-            fetch(`http://localhost:5000/user/list/${id}`, options)
+            fetch(`http://191.101.78.186:5000/user/list/${id}`, options)
             .then(response => response.json())
             .then((data)=>{
 
